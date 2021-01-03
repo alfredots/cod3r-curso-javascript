@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <div id='conteudo'></div>
+
+    <script>
+        $(document).ready(()=>{
+            const pessoas = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+
+            //criando parte nomes
+            let table = $('<table>')
+            let thead = $('<thead>').append('<tr></tr>').append('<th>Nome</th>','<th>Nota</th>')
+            table.append(thead)
+            
+            pessoas.forEach((v,i)=>{
+                let row = $("<tr>")
+                let nome = $("<td>").html(v.nome)
+                let nota = $("<td>").html(v.nota)
+                row.append(nome,nota)
+                table.append(row)
+
+            })
+            $("#conteudo").append(table)
+        })
+        // ...
+    </script>
+</body>
